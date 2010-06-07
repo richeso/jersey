@@ -62,7 +62,8 @@ public class ContactsResource {
 		URI uri = uriInfo.getAbsolutePathBuilder().path(id).build();
 		Response.created(uri).build();
 		
-		servletResponse.sendRedirect("../pages/new_contact.html");
+		//servletResponse.sendRedirect("../pages/new_contact.html");
+		servletResponse.sendRedirect("/jersey/rest/contacts/"+id);
 	}
 	
 	@Path("{contact}")
