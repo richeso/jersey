@@ -19,7 +19,7 @@ public class ContactClient {
 	
 	public static void main(String[] args) {
 		Client c = Client.create();
-		WebResource r = c.resource("http://localhost:8080/Jersey/rest/contacts");
+		WebResource r = c.resource("http://localhost:8080/jersey/rest/contacts");
 		
 		System.out.println("===== Get huangyim =====");
 		getOneContact(r, "huangyim");
