@@ -33,7 +33,7 @@ public class ContactsResource {
 	Request request;
 
 	@GET
-	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_HTML, MediaType.TEXT_PLAIN})
 	public List<Contact> getContacts() {
 		List<Contact> contacts = new ArrayList<Contact>();
 		contacts.addAll( ContactStore.getStore().values() );
