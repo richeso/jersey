@@ -5,6 +5,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
 import javax.ws.rs.FormParam;
@@ -19,8 +20,11 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import com.sun.jersey.api.view.Viewable;
+
 import sample.hello.bean.Address;
 import sample.hello.bean.Contact;
+import sample.hello.bean.ContactList;
 import sample.hello.storage.ContactStore;
 
 
@@ -31,13 +35,25 @@ public class ContactsResource {
 	UriInfo uriInfo;
 	@Context
 	Request request;
+	@Context HttpServletRequest servletRequest;
 
 	@GET
-	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON, MediaType.TEXT_HTML, MediaType.TEXT_PLAIN})
+	@Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
 	public List<Contact> getContacts() {
 		List<Contact> contacts = new ArrayList<Contact>();
 		contacts.addAll( ContactStore.getStore().values() );
 		return contacts;
+	}
+	@GET
+	@Path("list")
+	public Viewable getContactList() {
+		List<Contact> contacts = new ArrayList<Contact>();
+		contacts.addAll( ContactStore.getStore().values() );
+		ContactList clist = new ContactList();
+		clist.setContactListName("Contact List from jersey service");
+		clist.setContacts(contacts);
+		servletRequest.getSession().setAttribute("testfromjersey","test from jersey initialized");
+		return  new Viewable("/pages/contacts.jsp", clist);
 	}
 	
 	@GET
@@ -62,8 +78,7 @@ public class ContactsResource {
 		URI uri = uriInfo.getAbsolutePathBuilder().path(id).build();
 		Response.created(uri).build();
 		
-		//servletResponse.sendRedirect("../pages/new_contact.html");
-		servletResponse.sendRedirect("/jersey/rest/contacts/"+id);
+		servletResponse.sendRedirect("../pages/new_contact.html");
 	}
 	
 	@Path("{contact}")
