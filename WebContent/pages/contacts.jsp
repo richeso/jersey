@@ -35,8 +35,6 @@
         The modified local variable   testfromjersey is: <%=var %> <br/>   	
      	The modified session variable testfromjersey is: <c:out value="${sessionScope.testfromjersey}" /> <br/>   	
     </p>
-    
-    <%@ include file="/pages/contactfooter.jsp" %>
-    
+       
     </body>
 </html>
