@@ -36,6 +36,13 @@
      	The session variable myvariable is: <c:out value="${sessionScope.myvariable}" /> <br/>   
      	The contents of requestScopedVariable is: <c:out value="${requestScope.requestScopedVariable}" /> <br/>  
     </p>
-       
+     <hr></hr>
+     <p>
+     	<table>
+        <tbody>
+ 	    <tr><td align="right"><a href="/jersey/pages/new_contact.html">Add a new Contact</a></td><td> --> Add a new contact</td></tr>
+       	</tbody>
+		</table>	
+     </p>  
     </body>
 </html>

@@ -68,7 +68,7 @@ public class ContactsResource {
 	@POST
 	@Produces(MediaType.TEXT_HTML)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public void newContact(
+	public Viewable newContact(
 			@FormParam("id") String id,
 			@FormParam("name") String name,
 			@Context HttpServletResponse servletResponse
@@ -79,7 +79,8 @@ public class ContactsResource {
 		URI uri = uriInfo.getAbsolutePathBuilder().path(id).build();
 		Response.created(uri).build();
 		
-		servletResponse.sendRedirect("../pages/new_contact.html");
+		//servletResponse.sendRedirect("../pages/new_contact.html");
+		return  getContactList();
 	}
 	
 	@Path("{contact}")
