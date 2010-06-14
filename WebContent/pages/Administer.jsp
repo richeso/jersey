@@ -23,7 +23,6 @@
 	   </tr>
    </c:forEach> 
         
- 
    </table>
    	<br></br>
     <hr></hr>
@@ -37,5 +36,10 @@
 		<input type="submit" value="Save" />
 	</form>
 	<hr></hr>
+	<table>
+       <tbody>
+       <tr><td align="left"><a href="/jersey/hibernate/play/init">Play Scramble &nbsp;</a></td><td> &nbsp; Play Scramble</td></tr>
+      	</tbody>
+	</table>	
 </body>
 </html>
