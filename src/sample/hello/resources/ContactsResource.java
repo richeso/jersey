@@ -53,6 +53,7 @@ public class ContactsResource {
 		clist.setContactListName("Contact List from jersey service");
 		clist.setContacts(contacts);
 		servletRequest.getSession().setAttribute("myvariable","test from jersey getContactList with /list url: - test from jersey initialized");
+		servletRequest.setAttribute("requestScopedVariable", "This is a request Scoped Variable initialized in ContactsResource.java");
 		return  new Viewable("/pages/contacts.jsp", clist);
 	}
 	

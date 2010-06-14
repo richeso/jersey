@@ -33,7 +33,8 @@
     <c:set var="testfromjersey" value="<%=var %>" scope="session" />
     <p>
         The modified local variable var is: <%=var %> <br/>   	
-     	The session variable myvariable is: <c:out value="${sessionScope.myvariable}" /> <br/>   	
+     	The session variable myvariable is: <c:out value="${sessionScope.myvariable}" /> <br/>   
+     	The contents of requestScopedVariable is: <c:out value="${requestScope.requestScopedVariable}" /> <br/>  
     </p>
        
     </body>
