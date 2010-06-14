@@ -5,9 +5,12 @@ import java.util.List;
 import java.util.Random;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
+import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Request;
 import javax.ws.rs.core.UriInfo;
 
@@ -40,6 +43,8 @@ public class Play {
 	
 	@GET
 	@Path("init")
+	@Produces(MediaType.TEXT_HTML)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public Viewable init() {
 	   List<Word> words = dictionaryDao.getWords();
 	   int numwords = words.size();
@@ -53,8 +58,10 @@ public class Play {
 	
 	@GET
 	@Path("guess")
+	@Produces(MediaType.TEXT_HTML)
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public Viewable guess() {
-	   String message = "";
+	   String message = "This is a message";
 	   return  new Viewable("/pages/PlayResults.jsp",message);
 	} 
 	
