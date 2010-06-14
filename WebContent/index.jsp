@@ -14,8 +14,9 @@
         <tr><td align="right"><a href="/jersey/sample/contacts/list">Contact List</a></td><td>Contact List</td></tr>
         <tr><td align="right"><a href="/jersey/sample/contacts">Contacts</a></td><td>Contacts</td></tr>
 	    <tr><td align="right"><a href="/jersey/pages/new_contact.html">Add a new Contact</a></td><td>Add new contact</td></tr>
+	    <tr><td align="right"><a href="/jersey/hibernate/list">Jersey Hibernate</a></td><td>Jersey/Hibernate Example</td></tr>
+	    
         <tr><td align="right"><a href="/jersey/bookstore">bookstore</a></td><td>bookstore</td></tr>
-        
        	</tbody>
 		</table>	
 	</div>
