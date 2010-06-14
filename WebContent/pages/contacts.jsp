@@ -23,17 +23,17 @@
         </c:forEach>
     </ul>
     <p>
-        The initial content of session variable testfromjersey is: <c:out value="${sessionScope.testfromjersey}" /> <br/>
+        The initial content of session variable myvariable is: <c:out value="${sessionScope.myvariable}" /> <br/>
     	 	
     </p>
     <%
-    String var = (String) request.getSession().getAttribute("testfromjersey");
-    var = var + " .. and modified in contacts.jsp";
+    String var = (String) request.getSession().getAttribute("myvariable");
+    var = var + " --> Version 2: This is myvariable modified in contacts.jsp";
     %>
     <c:set var="testfromjersey" value="<%=var %>" scope="session" />
     <p>
-        The modified local variable   testfromjersey is: <%=var %> <br/>   	
-     	The modified session variable testfromjersey is: <c:out value="${sessionScope.testfromjersey}" /> <br/>   	
+        The modified local variable var is: <%=var %> <br/>   	
+     	The session variable myvariable is: <c:out value="${sessionScope.myvariable}" /> <br/>   	
     </p>
        
     </body>

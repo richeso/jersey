@@ -52,7 +52,7 @@ public class ContactsResource {
 		ContactList clist = new ContactList();
 		clist.setContactListName("Contact List from jersey service");
 		clist.setContacts(contacts);
-		servletRequest.getSession().setAttribute("test from jersey getContactList with /list url:","test from jersey initialized");
+		servletRequest.getSession().setAttribute("myvariable","test from jersey getContactList with /list url: - test from jersey initialized");
 		return  new Viewable("/pages/contacts.jsp", clist);
 	}
 	
