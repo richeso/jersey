@@ -18,7 +18,7 @@ public class DictionaryDaoImpl extends HibernateDaoSupport implements Dictionary
 	public void updateWord(Word word) {
 		getHibernateTemplate().saveOrUpdate(word);
 	}
-	public List getWords() {
+	public List  getWords() {
 		List wordList = getHibernateTemplate().find("from Word order by value");
 		int numlist = wordList.size();
 		System.out.println("Number of entries = "+numlist);

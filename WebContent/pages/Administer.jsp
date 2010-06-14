@@ -13,7 +13,7 @@
 <body>
 <h1>Word List Administration</h1>
     
-   <table border="1" width="60%">
+   <table border="1" width="30%">
    <th>Value</th>
    <th>Points</th>
    <c:forEach var="t" items="${it.words}" varStatus="loop">

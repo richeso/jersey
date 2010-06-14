@@ -8,15 +8,14 @@
 <div id="container">
 	<div id="content">
 		<div id="header"></div>			
-		<h1>&nbsp;&nbsp;&nbsp;&nbsp;Menu</h1>
+		<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Menu</h1>
 		<table>
         <tbody>
-        <tr><td align="right"><a href="/jersey/sample/contacts/list">Contact List</a></td><td>Contact List</td></tr>
-        <tr><td align="right"><a href="/jersey/sample/contacts">Contacts</a></td><td>Contacts</td></tr>
-	    <tr><td align="right"><a href="/jersey/pages/new_contact.html">Add a new Contact</a></td><td>Add new contact</td></tr>
-	    <tr><td align="right"><a href="/jersey/hibernate/list">Jersey Hibernate</a></td><td>Jersey/Hibernate Example</td></tr>
-	    
-        <tr><td align="right"><a href="/jersey/bookstore">bookstore</a></td><td>bookstore</td></tr>
+        <tr><td align="left"><a href="/jersey/sample/contacts/list">Contact List</a></td><td>Contact List</td></tr>
+        <tr><td align="left"><a href="/jersey/sample/contacts">Contacts</a></td><td>Contacts</td></tr>
+	    <tr><td align="left"><a href="/jersey/pages/new_contact.html">Add a new Contact</a></td><td>Add new contact</td></tr>
+	    <tr><td align="left"><a href="/jersey/hibernate/list">Jersey/Spring/Hibernate Example</a></td><td>Hibernate Word Administration</td></tr>
+        <tr><td align="left"><a href="/jersey/bookstore">bookstore</a></td><td>bookstore</td></tr>
        	</tbody>
 		</table>	
 	</div>
