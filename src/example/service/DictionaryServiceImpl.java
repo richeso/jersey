@@ -11,7 +11,7 @@ import example.data.Word;
 @Service
 @Transactional
 public class DictionaryServiceImpl implements DictionaryService {
-	private DictionaryDaoImpl dictionaryDao;
+	private DictionaryDao dictionaryDao;
 	
 	public void updateWord(Word word) {
 		dictionaryDao.updateWord(word);

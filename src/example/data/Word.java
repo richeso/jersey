@@ -20,6 +20,10 @@ public class Word implements Serializable {
 	@Column(nullable = false)
 	private Integer points;
 
+	public Word () {
+		value  = "";
+		points = new Integer(0);
+	}
 	public Word (String aValue, Integer aPoints){
 		this.value = aValue;
 		this.points = aPoints;

@@ -19,6 +19,7 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
@@ -36,19 +37,20 @@ import example.data.Word;
 import example.data.WordList;
 import example.service.DictionaryService;
 import example.service.DictionaryServiceImpl;
-// The Java class will be hosted at the URI path "/hibernate/Administer"
+// The Java class will be hosted at the URI path "/hibernate"
 @Path("/")
 @Component
 @Scope("request")
+
 public class Administer {
 	@Context
 	UriInfo uriInfo;
 	@Context
 	Request request;
 	@Context HttpServletRequest servletRequest;
- 
-	@Inject private DictionaryDaoImpl dictionaryDao;
-	@Inject private DictionaryServiceImpl dictionaryService;
+
+	@Inject private DictionaryDao dictionaryDao;
+	@Inject private DictionaryService dictionaryService;
 	
 	@GET
 	@Path("list")

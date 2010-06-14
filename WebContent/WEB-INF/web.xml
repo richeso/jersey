@@ -10,9 +10,18 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-  <servlet>
+   <!--
+     Parameter used by Spring to locate its context configuration used for creating
+     a WebApplicationContext.
+    --> 
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>classpath:applicationContext.xml</param-value>
+	</context-param>
+	
+   <servlet>
 	<servlet-name>Jersey Hibernate Service</servlet-name>
-	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
+	<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
 	<init-param>
 		<param-name>com.sun.jersey.config.property.packages</param-name>
 		<param-value>example.resources</param-value>
@@ -93,4 +102,8 @@
 		org.springframework.web.context.ContextLoaderListener
 	</listener-class>
 </listener>
+<listener>
+          <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+</listener>
+
 </web-app>
