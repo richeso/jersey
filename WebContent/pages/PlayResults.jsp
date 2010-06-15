@@ -24,7 +24,7 @@
     <hr></hr>
 	<p>Enter Your Guess for the Unscrambled Word and then click Submit Guess</p>
 
-	<form action="../hibernate/guess" method="POST">
+	<form action="../hibernate/play/guess" method="POST">
 		<label for="guess">Submit Guess</label>
 		<input name="guess" />
 		<input type="submit" value="guess" />
