@@ -20,6 +20,12 @@
 		   <td><b>${it.numCorrect}</b></td>
 		   <td><b>${it.numWrong}</b></td>
 	   </tr>
+   
+   <tr>
+	   <td align="left" colspan="2">
+	      Total Score = ${it.score}
+	   </td>
+   </tr>
    <tr>
 	   <td align="left" colspan="2">
 	   <a href="/jersey/hibernate/play/again">Play Scramble Again</a>

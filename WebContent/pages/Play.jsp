@@ -18,7 +18,9 @@
 	   <tr>
 		   <td><b>${it.scrambledWord}</b></td>
 	   </tr>
-        
+        <tr>
+		   <td><b>Total Point Value = ${it.selectedWord.points}</b></td>
+	   </tr> 
    </table>
    	<br></br>
     <hr></hr>
