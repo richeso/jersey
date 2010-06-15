@@ -16,6 +16,7 @@
 	    <tr><td align="left"><a href="/jersey/pages/new_contact.html">Add a new Contact</a></td><td>Add new contact</td></tr>
 	    <tr><td align="left"><a href="/jersey/hibernate/list">Jersey/Spring/Hibernate Example</a></td><td>Hibernate Word Administration</td></tr>
         <tr><td align="left"><a href="/jersey/bookstore">bookstore</a></td><td>bookstore</td></tr>
+        <tr><td align="left"><a href="/jersey/Logout.jsp">Logout</a></td><td>Log off System</td></tr>
        	</tbody>
 		</table>	
 	</div>
