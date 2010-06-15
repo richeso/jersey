@@ -16,7 +16,7 @@
    <table border="1" width="30%">
    <th>Selected Scrambled Word</th>
 	   <tr>
-		   <td><b>${it}</b></td>
+		   <td><b>${it.scrambledWord}</b></td>
 	   </tr>
         
    </table>

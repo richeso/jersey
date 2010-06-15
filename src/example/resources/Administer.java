@@ -67,7 +67,7 @@ public class Administer {
 	@Path("save")
 	@Produces(MediaType.TEXT_HTML)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
-	public Viewable newContact(
+	public Viewable newWord(
 			@FormParam("value")  String value,
 			@FormParam("points") String points,
 			@Context HttpServletResponse servletResponse
@@ -77,6 +77,4 @@ public class Administer {
 		//servletResponse.sendRedirect("../pages/new_contact.html");
 		return  getWordList();
 	}
-	
-	
 }

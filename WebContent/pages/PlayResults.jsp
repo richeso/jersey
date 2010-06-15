@@ -11,23 +11,27 @@
 <title>Guess Scramble Word</title>
 </head>
 <body>
-<h1>Guess the Selected Word</h1>
+<h1>${it.message}</h1>
     
    <table border="1" width="30%">
-   <th>Selected Scrambled Word</th>
+   <th>Number Correct</th>
+   <th>Number Wrong</th>
 	   <tr>
-		   <td><b>${it}</b></td>
+		   <td><b>${it.numCorrect}</b></td>
+		   <td><b>${it.numWrong}</b></td>
 	   </tr>
+   <tr>
+	   <td align="left" colspan="2">
+	   <a href="/jersey/hibernate/play/again">Play Scramble Again</a>
+	   </td>
+   </tr>
+   <tr>
+	   <td align="left" colspan="2">
+	   <a href="/jersey/hibernate/list">Update Word Dictionary</a>
+	   </td>
+   </tr>
         
    </table>
-   	<br></br>
-    <hr></hr>
-	<p>Enter Your Guess for the Unscrambled Word and then click Submit Guess</p>
-
-	<form action="../hibernate/play/guess" method="POST">
-		<label for="guess">Submit Guess</label>
-		<input name="guess" />
-		<input type="submit" value="guess" />
-	</form>
-	<hr></hr>
+   
+   	
 </body>
