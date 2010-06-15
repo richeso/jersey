@@ -2,6 +2,7 @@ package sample.hello.resources;
 
 import java.io.IOException;
 import java.net.URI;
+import java.security.Principal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,10 @@ import javax.ws.rs.core.Request;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.UriInfo;
 
+import org.apache.catalina.realm.GenericPrincipal;
+
 import com.sun.jersey.api.view.Viewable;
+import com.sun.security.auth.UserPrincipal;
 
 import sample.hello.bean.Address;
 import sample.hello.bean.Contact;
@@ -54,6 +58,11 @@ public class ContactsResource {
 		clist.setContacts(contacts);
 		servletRequest.getSession().setAttribute("myvariable","test from jersey getContactList with /list url: - test from jersey initialized");
 		servletRequest.setAttribute("requestScopedVariable", "This is a request Scoped Variable initialized in ContactsResource.java");
+		GenericPrincipal principal =  (GenericPrincipal) servletRequest.getUserPrincipal();
+		String roles[] = principal.getRoles();
+		System.out.println("Roles="+roles.toString());
+		System.out.println("User Principal Name= "+principal.getName());
+		
 		return  new Viewable("/pages/contacts.jsp", clist);
 	}
 	
