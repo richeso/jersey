@@ -21,4 +21,10 @@ public class DictionaryServiceImpl implements DictionaryService {
 	public void setDictionaryDao(DictionaryDaoImpl dictionaryDao) {
 		this.dictionaryDao = dictionaryDao;
 	}
+	public void deleteWord(Integer wordKey) {
+		dictionaryDao.deleteWord(wordKey);
+	}
+	public Word getWord(Integer wordKey) {
+		return dictionaryDao.getWord(wordKey);
+	}
 }

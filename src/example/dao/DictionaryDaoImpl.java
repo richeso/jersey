@@ -27,6 +27,9 @@ public class DictionaryDaoImpl extends HibernateDaoSupport implements Dictionary
 	public Word getWord(Integer id) {
 		return (Word) getHibernateTemplate().get(Word.class, id);
 	}
+	public void deleteWord(Integer id) {
+		getHibernateTemplate().delete(getWord(id));
+	}
 	public Word getRandomWord() {
 		return (Word) getHibernateTemplate().execute(new HibernateCallback() {
 			public Object doInHibernate(Session session) throws HibernateException, SQLException {

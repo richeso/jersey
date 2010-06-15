@@ -14,10 +14,12 @@
 <h1>Word List Administration</h1>
     
    <table border="1" width="30%">
+   <th>Action</th>
    <th>Value</th>
    <th>Points</th>
    <c:forEach var="t" items="${it.words}" varStatus="loop">
 	   <tr>
+	   	   <td align="left"><a href="/jersey/hibernate/delete/${t.id}/">Remove</a></td>
 		   <td><b>${t.value}</b></td>
 		   <td>${t.points}</td>
 	   </tr>
@@ -28,7 +30,7 @@
     <hr></hr>
 	<p>Enter a new word and the points associated with it. Then click Save</p>
 
-	<form action="../hibernate/save" method="POST">
+	<form action="/jersey/hibernate/save" method="POST">
 		<label for="value">Value</label>
 		<input name="value" />
 		<label for="points">Points</label>

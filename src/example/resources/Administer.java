@@ -8,10 +8,12 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
 import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
 import javax.ws.rs.POST;
 import javax.ws.rs.Path;
+import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
@@ -24,6 +26,7 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import com.sun.jersey.api.view.Viewable;
+import com.sun.jersey.samples.bookstore.resources.Item;
 import com.sun.jersey.spi.inject.Inject;
 
 import sample.hello.bean.Address;
@@ -52,17 +55,6 @@ public class Administer {
 	@Inject private DictionaryDao dictionaryDao;
 	@Inject private DictionaryService dictionaryService;
 	
-	@GET
-	@Path("list")
-	public Viewable getWordList() {
-		List<Word> words = new ArrayList<Word>();
-		words.addAll( dictionaryDao.getWords() );
-		WordList wlist = new WordList();
-		wlist.setWordListName("Word List from jersey service");
-		wlist.setWords(words);
-			return  new Viewable("/pages/Administer.jsp", wlist);
-	} 
-	
 	@POST
 	@Path("save")
 	@Produces(MediaType.TEXT_HTML)
@@ -77,4 +69,29 @@ public class Administer {
 		//servletResponse.sendRedirect("../pages/new_contact.html");
 		return  getWordList();
 	}
+	
+	@GET
+	@Path("list")
+	public Viewable getWordList() {
+		List<Word> words = new ArrayList<Word>();
+		words.addAll( dictionaryDao.getWords() );
+		WordList wlist = new WordList();
+		wlist.setWordListName("Word List from jersey service");
+		wlist.setWords(words);
+			return  new Viewable("/pages/Administer.jsp", wlist);
+	} 
+	
+	@GET
+	@Path("delete/{wordKey}/")
+	public Viewable delete(
+			@PathParam("wordKey") String wordKey,
+			@Context HttpServletResponse servletResponse
+	) throws IOException {
+		dictionaryService.deleteWord(new Integer(wordKey));	
+		//servletResponse.sendRedirect("../pages/new_contact.html");
+		return  getWordList();
+	}
+	
+	
+	
 }
