@@ -8,7 +8,7 @@
   <decorator:head />
   <body>
     <div id="header">
-      <h2><a href="http://www.lumidant.com/">Lumidant.com</a> Test SiteMesh Tutorials</h2>
+      <h1>Header for Web Site - in main.jsp</h1>
     </div>
     <div id="content">
       <decorator:body />
