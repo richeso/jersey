@@ -18,7 +18,7 @@
   className="org.apache.catalina.realm.JDBCRealm" 
   connectionURL="jdbc:mysql://localhost:3306/jersey"
   digest="SHA-1"
-  driverName="org.gjt.mm.mysql.Driver"
+  driverName="com.mysql.jdbc.Driver"
   roleNameCol="Role"
   userCredCol="Password" 
   userNameCol="Name" 
