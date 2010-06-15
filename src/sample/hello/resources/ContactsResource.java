@@ -60,7 +60,10 @@ public class ContactsResource {
 		servletRequest.setAttribute("requestScopedVariable", "This is a request Scoped Variable initialized in ContactsResource.java");
 		GenericPrincipal principal =  (GenericPrincipal) servletRequest.getUserPrincipal();
 		String roles[] = principal.getRoles();
-		System.out.println("Roles="+roles.toString());
+		for (int i=0;i<roles.length;i++) {
+			System.out.println("role "+i+" ="+roles[i]);
+		}
+		 
 		System.out.println("User Principal Name= "+principal.getName());
 		
 		return  new Viewable("/pages/contacts.jsp", clist);
