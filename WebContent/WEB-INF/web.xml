@@ -105,7 +105,29 @@
 <listener>
           <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
 </listener>
-
+ <error-page>
+    <exception-type>javax.servlet.ServletException</exception-type>
+     <location>/Error.html</location>
+  </error-page>
+  <error-page>
+    <error-code>500</error-code> <!-- InternalServerError -->
+     <location>/Error.html</location>
+  </error-page>
+  <error-page>
+    <error-code>400</error-code> <!-- Bad Requests : hacks, bad bugs, spam. -->
+     <location>/ErrorBadRequest.jsp</location>
+  </error-page>
+  <error-page>
+    <error-code>403</error-code> <!-- Access Denied, Not Authorized. -->
+     <location>/ErrorAccessDenied.jsp</location>
+  </error-page>
+  
+  <!-- Logged problems, for bugs, lost db connection, etc.-->
+  <error-page>
+    <error-code>503</error-code> <!-- ServiceUnavailable -->
+    <location>/Error.html</location>
+  </error-page>
+  
   <security-constraint>
    <web-resource-collection>
     <web-resource-name>hibernate</web-resource-name>
