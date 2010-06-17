@@ -34,12 +34,12 @@ public class ContactClient {
 		//queryParams.add("j_username", "richard");
 		//queryParams.add("j_password", "testtest");
 		
-		WebResource r = c.resource("https://localhost/jersey/autologin");
+		WebResource r = c.resource("https://localhost/jersey/autologin/login");
 		Form form = new Form();
 		form.add("j_username", "richard");
 		form.add("j_password", "testtest"); 
 		ClientResponse response = r.type(MediaType.APPLICATION_FORM_URLENCODED)
-		   .accept(MediaType.TEXT_PLAIN).post(ClientResponse.class, form);
+		   .accept(MediaType.TEXT_HTML).post(ClientResponse.class, form);
 		System.out.println(response.getEntity(String.class));	
 		
 		r = c.resource("https://localhost/jersey/sample/contacts");

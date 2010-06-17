@@ -45,11 +45,12 @@ import example.data.WordList;
 import example.service.DictionaryService;
 import example.service.DictionaryServiceImpl;
 
-@Path("/autologin")
+@Path("/login")
 public class Login {
 	@Context UriInfo uriInfo;
 	@Context Request request;
-	@Context HttpServletRequest servletRequest;
+	@Context HttpServletRequest  servletRequest;
+	@Context HttpServletResponse servletResponse;
 
 	@GET
 	@Path("ping")
@@ -63,8 +64,7 @@ public class Login {
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
 	public String login(
 			@FormParam("j_username")  String username,
-			@FormParam("j_password")  String password,
-			@Context HttpServletResponse servletResponse
+			@FormParam("j_password")  String password
 	) throws Exception {
 		System.out.println("/autologin web service invoked");
 		ProgrammaticAuthenticator auth = new ProgrammaticAuthenticator();
@@ -73,6 +73,7 @@ public class Login {
 		for (String role: roles) {
 			roleList.add(role);
 		}
+		 
 		auth.authenticate(servletRequest, servletResponse, username, password, roleList);
 		return "SUCCESSFUL LOGIN FROM AUTOLOGIN";
 	}
