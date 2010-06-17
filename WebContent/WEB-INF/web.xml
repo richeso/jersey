@@ -174,10 +174,11 @@
   </security-constraint>
   
   <login-config>
-  <!--  
-   <auth-method>BASIC</auth-method>
-  -->  
+ 
    <auth-method>FORM</auth-method>
+     <!--  
+      <auth-method>BASIC</auth-method>
+  	 -->  
     
    <form-login-config>
     <form-login-page>/Login.jsp</form-login-page>

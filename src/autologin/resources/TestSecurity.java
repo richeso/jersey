@@ -1,4 +1,4 @@
-package autologin.service;
+package autologin.resources;
 
 import com.sun.jersey.core.util.Base64;
 import javax.annotation.security.RolesAllowed;
