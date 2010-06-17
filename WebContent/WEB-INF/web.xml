@@ -24,17 +24,7 @@
 	<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
 	<init-param>
 		<param-name>com.sun.jersey.config.property.packages</param-name>
-		<param-value>example.resources</param-value>
-	</init-param>
-	<load-on-startup>1</load-on-startup>
-  </servlet>
-  
-  <servlet>
-	<servlet-name>Jersey Auto Login Service</servlet-name>
-	<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
-	<init-param>
-		<param-name>com.sun.jersey.config.property.packages</param-name>
-		<param-value>autologin.resources</param-value>
+		<param-value>example.resources, autologin.resources</param-value>
 	</init-param>
 	<load-on-startup>1</load-on-startup>
   </servlet>
@@ -73,7 +63,7 @@
  </servlet-mapping>
  
  <servlet-mapping>
-	<servlet-name>Jersey Auto Login Service</servlet-name>
+	<servlet-name>Jersey Hibernate Service</servlet-name>
 	<url-pattern>/autologin/*</url-pattern>
  </servlet-mapping>
  

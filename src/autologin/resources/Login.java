@@ -45,12 +45,19 @@ import example.data.WordList;
 import example.service.DictionaryService;
 import example.service.DictionaryServiceImpl;
 
-@Path("autologin")
+@Path("/autologin")
 public class Login {
 	@Context UriInfo uriInfo;
 	@Context Request request;
 	@Context HttpServletRequest servletRequest;
 
+	@GET
+	@Path("ping")
+	@Produces(MediaType.TEXT_PLAIN)
+	public String ping() {
+		return ("Im alive");
+	}
+	
 	@POST
 	@Produces(MediaType.TEXT_HTML)
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)

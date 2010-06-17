@@ -1,4 +1,4 @@
-package autologin.resources;
+package autologin.service;
 
 import com.sun.jersey.core.util.Base64;
 import javax.annotation.security.RolesAllowed;
@@ -8,7 +8,7 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.Context;
 import javax.ws.rs.core.HttpHeaders;
  
-@Path("/autologin/Test")
+@Path("/testsecurity")
 @RolesAllowed("admin")
 public class TestSecurity {
  

@@ -2,7 +2,7 @@
 <body>
 <font size='5' color='blue'>Please Login</font><hr>
 
-<form action='j_security_check' method='post'>
+<form action='/jersey/autologin' method='post'>
 <table>
  <tr><td>Name:</td>
    <td><input type='text' name='j_username'></td></tr>
