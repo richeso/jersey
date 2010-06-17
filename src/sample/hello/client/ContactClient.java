@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
 import javax.xml.bind.JAXBElement;
 
 import sample.hello.bean.Address;
@@ -13,16 +14,41 @@ import com.sun.jersey.api.client.Client;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.GenericType;
 import com.sun.jersey.api.client.WebResource;
+import com.sun.jersey.api.client.config.ClientConfig;
+import com.sun.jersey.api.client.config.DefaultClientConfig;
+import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import com.sun.jersey.api.representation.Form;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
 
 public class ContactClient {
 	
 	public static void main(String[] args) {
+		 
 		Client c = Client.create();
-		WebResource r = c.resource("http://localhost:8080/jersey/rest/contacts");
+		// This is for basic authentication
+		//HTTPBasicAuthFilter auth= new HTTPBasicAuthFilter("richard", "testtest");
+		//c.addFilter(auth);
 		
+		// This is for Multi Valued parms
+		//MultivaluedMap queryParams = new MultivaluedMapImpl();
+		//queryParams.add("j_username", "richard");
+		//queryParams.add("j_password", "testtest");
+		
+		WebResource r = c.resource("https://localhost/jersey/autologin");
+		Form form = new Form();
+		form.add("j_username", "richard");
+		form.add("j_password", "testtest"); 
+		ClientResponse response = r.type(MediaType.APPLICATION_FORM_URLENCODED)
+		   .accept(MediaType.TEXT_PLAIN).post(ClientResponse.class, form);
+		System.out.println(response.getEntity(String.class));	
+		
+		r = c.resource("https://localhost/jersey/sample/contacts");
+		
+		//add multi valued params
+		//r = r.queryParams(queryParams);    
+	     
 		System.out.println("===== Get huangyim =====");
-		getOneContact(r, "huangyim");
+		getOneContact(r,  "huangyim");
 		
 		System.out.println("===== Create foo =====");
 		postForm(r, "foo", "bar");
@@ -69,7 +95,7 @@ public class ContactClient {
 		System.out.println(contact.getId() + ": " + contact.getName());
 	}
 	
-	public static void getOneContact(WebResource r, String id) {
+	public static void getOneContact(WebResource r,  String id) {
 		GenericType<JAXBElement<Contact>> generic = new GenericType<JAXBElement<Contact>>() {};
 		JAXBElement<Contact> jaxbContact = r.path(id).accept(MediaType.APPLICATION_XML).get(generic);
 		Contact contact = jaxbContact.getValue();

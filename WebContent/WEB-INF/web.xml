@@ -30,6 +30,16 @@
   </servlet>
   
   <servlet>
+	<servlet-name>Jersey Auto Login Service</servlet-name>
+	<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+	<init-param>
+		<param-name>com.sun.jersey.config.property.packages</param-name>
+		<param-value>autologin.resources</param-value>
+	</init-param>
+	<load-on-startup>1</load-on-startup>
+  </servlet>
+  
+  <servlet>
 	<servlet-name>Jersey REST Service</servlet-name>
 	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 	<init-param>
@@ -60,6 +70,11 @@
  <servlet-mapping>
 	<servlet-name>Jersey Hibernate Service</servlet-name>
 	<url-pattern>/hibernate/*</url-pattern>
+ </servlet-mapping>
+ 
+ <servlet-mapping>
+	<servlet-name>Jersey Auto Login Service</servlet-name>
+	<url-pattern>/autologin/*</url-pattern>
  </servlet-mapping>
  
    
@@ -159,7 +174,11 @@
   </security-constraint>
   
   <login-config>
+  <!--  
+   <auth-method>BASIC</auth-method>
+  -->  
    <auth-method>FORM</auth-method>
+    
    <form-login-config>
     <form-login-page>/Login.jsp</form-login-page>
     <form-error-page>/LoginError.jsp</form-error-page>
