@@ -31,7 +31,7 @@
   
   <servlet>
 	<servlet-name>Jersey Autologin Service</servlet-name>
-	<servlet-class>com.sun.jersey.spi.spring.container.servlet.SpringServlet</servlet-class>
+	<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 	<init-param>
 		<param-name>com.sun.jersey.config.property.packages</param-name>
 		<param-value>autologin.resources</param-value>
@@ -145,11 +145,31 @@
   
   <security-constraint>
    <web-resource-collection>
+    <web-resource-name>autologin</web-resource-name>
+    <url-pattern>/*</url-pattern>
+   </web-resource-collection>
+   <auth-constraint>
+    <role-name>user</role-name>
+   </auth-constraint>
+  </security-constraint>
+  
+  <security-constraint>
+   <web-resource-collection>
     <web-resource-name>hibernate</web-resource-name>
     <url-pattern>/hibernate/*</url-pattern>
    </web-resource-collection>
    <auth-constraint>
     <role-name>admin</role-name>
+   </auth-constraint>
+  </security-constraint>
+  
+   <security-constraint>
+   <web-resource-collection>
+    <web-resource-name>autologin</web-resource-name>
+    <url-pattern>/autologin/*</url-pattern>
+   </web-resource-collection>
+   <auth-constraint>
+    <role-name>user</role-name>
    </auth-constraint>
   </security-constraint>
   
