@@ -1,0 +1,32 @@
+<!-- Example of a Tomcat configuration file for this application. -->
+<!-- Usernames, passwords are phony. Please modify. -->
+<!-- Place this file in [TOMCAT_HOME]\conf\Catalina\localhost\, and restart Tomcat once your edits are complete. -->
+<Context path="/jersey" docBase="C:\workeclipse\jersey" debug="5" reloadable="true" crossContext="true">
+ 
+ <Resource 
+   name="jdbc/sample" 
+   auth="Container" 
+   type="javax.sql.DataSource" 
+   username="db2admin"
+   password="db2admin"
+   driverName="COM.ibm.db2.jdbc.app.DB2Driver"
+   connectionURL="jdbc:db2:sample"
+   maxActive="10"
+   maxIdle="5"
+ />
+ <Realm 
+  className="org.apache.catalina.realm.JDBCRealm" 
+  connectionURL="jdbc:db2:sample"
+  digest="SHA-1"
+  driverName="COM.ibm.db2.jdbc.app.DB2Driver"
+  roleNameCol="Role"
+  userCredCol="Password" 
+  userNameCol="Name" 
+  userRoleTable="UserRole" 
+  userTable="Users" 
+  connectionName="db2admin"
+  connectionPassword="db2admin"
+  debug="99"
+ />
+ 
+</Context>
