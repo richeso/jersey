@@ -128,6 +128,7 @@
 		<h1>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Menu</h1>
 		<table>
         <tbody>
+        <tr><td align="left"><a href="/jersey/jqueryui">Jquery UI</a></td><td>Jquery UI</td></tr>
         <tr><td align="left"><a href="/jersey/sample/contacts/list">Contact List</a></td><td>Contact List</td></tr>
         <tr><td align="left"><a href="/jersey/sample/contacts">Contacts</a></td><td>Contacts</td></tr>
 	    <tr><td align="left"><a href="/jersey/pages/new_contact.html">Add a new Contact</a></td><td>Add new contact</td></tr>
